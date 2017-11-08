@@ -1,3 +1,16 @@
+
+if ("serviceWorker" in navigator){
+  console.log("register serviceWorker");
+  navigator.serviceWorker.register("/serviceworker.js")
+  .then(function(registration){
+    console.log("Service worker registered in scope", registration.scope);
+  }).catch(function(err){
+    console.log("Servoce worker registration failed", err);
+  });
+
+}
+
+
 $(document).ready(function() {
   // Fetch and render upcoming events in the hotel
   $.getJSON("/events.json", renderEvents);
